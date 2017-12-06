@@ -98,7 +98,7 @@ print("This is version 3")
 user_tag = input("Input Tag (exclude the #):" )
 user_count = input("How many users would you like (count < 21): ")
 try:
-    float(user_count)
+    user_count = int(user_count)
 except:
     print("Count input must be a numeric value")
     quit()
