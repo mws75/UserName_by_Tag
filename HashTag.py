@@ -94,6 +94,15 @@ def get_username(href_from_posts, set_count=5):
             usernames_final = pd.unique(username_list).tolist()
             print(usernames_final)
             return usernames_final
+
+def save_to_file(my_list, tag):
+    now = datetime.datetime.now()
+    current_date = str(now.year) + "-" + str(now.month) + "-" + str(now.day)
+    with open(current_date + "_" + tag + ".txt", "w") as fname:
+        for item in my_list:
+            fname.write(item + '\n')
+        fname.close()
+
 print("This is version 3")
 user_tag = input("Input Tag (exclude the #):" )
 user_count = input("How many users would you like (count < 21): ")
@@ -102,7 +111,8 @@ try:
 except:
     print("Count input must be a numeric value")
     quit()
+
 posts = get_posts(user_tag)
 href_posts = get_href(posts)
-get_username(href_posts, user_count)
-
+users = get_username(href_posts, user_count)
+save_to_file(users, user_tag)
