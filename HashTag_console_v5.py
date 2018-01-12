@@ -163,7 +163,7 @@ def main():
 	href_posts = get_href(posts)
 	users = get_username(href_posts, user_count)
 	save_to_file(users, user_tag)
-	print("All done, check you folder for the .csv")
+	print("All done with this, check you folder for the .csv")
 
 if __name__=="__main__":
 	main()
